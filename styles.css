@@ -1,0 +1,265 @@
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* 2. Remove default margin */
+  * {
+    margin: 0;
+  }
+  
+  body {
+    /* 3. Add accessible line-height */
+    line-height: 1.5;
+    /* 4. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* 5. Improve media defaults */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  /* 6. Inherit fonts for form controls */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  
+  /* 7. Avoid text overflows */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  
+  /* 8. Improve line wrapping */
+  p {
+    text-wrap: balance;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+  
+  /*
+    9. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+
+
+/* Base styles */
+:root {
+    --primary-text: #f2d4b4;
+    --primary-bg: #55212f;
+    --primary-bg-200: #0000007e;
+    --gray-300: #d1d5db;
+    --gray-500: #6b7280;
+
+}
+
+body {
+    font-family: "Gabarito", serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--gray-100);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-bg);
+}
+
+.content {
+    padding: 2.5rem;
+}
+
+/* Container and Card */
+.container {
+    width: 100%;
+    padding: 1.5rem;
+}
+
+.card-header {
+    border-bottom: 1px solid #fcf1ba;
+    padding: 32px;
+}
+
+.card {
+    border: 1px solid var(--primary-text);
+    background: var(--primary-bg);
+    border-radius: 1.5rem;
+    max-width: 36rem;
+    margin: 0 auto;
+}
+
+/* Typography */
+h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-text);
+}
+
+h2 {
+    color: var(--primary-text);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Grid layouts */
+.workout-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.time-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .workout-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Buttons */
+
+/* Button Animations */
+
+.bob-animation {
+    display: inline-block;
+    animation: bobbing 1.15s ease-in-out infinite;
+  }
+  
+  /* Pause animation on button hover */
+  button:hover:not(:disabled) .bob-animation {
+    animation-play-state: paused;
+  }
+  
+  @keyframes bobbing {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+  }
+
+  .rotate-animation {
+    display: inline-block;
+    animation: rotating 2s linear infinite reverse;
+  }
+  
+  /* Pause animation on button hover */
+  button:hover .rotate-animation {
+    animation-play-state: paused;
+  }
+  
+  @keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /*End of Button Animations*/
+
+.workout-button, .time-button {
+    box-sizing: border-box;
+    color: var(--primary-text);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: #0000007e;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.2s;
+}
+
+.workout-button:hover, .time-button:hover {
+}
+
+.workout-button.selected, .time-button.selected {
+    border: 1px solid var(--primary-text);
+}
+
+.workout-button h3 {
+    font-weight: 600;
+    margin: 0;
+}
+
+.workout-button p {
+    font-size: 0.875rem;
+    margin: 0.25rem 0 0 0;
+}
+
+.time-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.generate-button {
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 1rem;
+    border-radius: 2rem;
+    border: none;
+    background-color: #0000007e;
+    color: var(--primary-text);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 2rem;
+}
+
+.generate-button:not(:disabled) {
+    border: 1px solid var(--primary-text);
+}
+
+.generate-button:hover:not(:disabled) {
+    background-color: var(--primary-text);
+    color: var(--primary-bg);
+}
+
+.generate-button:disabled {
+    background-color: var(--gray-300);
+    color: var(--gray-500);
+    cursor: not-allowed;
+}
+
+/* Workout details */
+.workout-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-text);
+}
+
+#workout-instructions {
+    color: var(--primary-text);
+}
+
+.space-y-4 > * + * {
+    margin-top: 1rem;
+}
+
+.space-y-8 > * + * {
+    margin-top: 2rem;
+}
+
+/* Icon styles */
+[data-lucide] {
+    width: 1.25rem;
+    height: 1.25rem;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Running Workout</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>Daily Running Workout</h1>
+            </div>
+            <div class="content">
+                
+                <!-- Selection Screen -->
+                <div id="selection-screen" class="space-y-8">
+                    <!-- Workout Type Selection -->
+                    <div>
+                        <h2>Choose your workout type</h2>
+                        <div class="workout-grid" id="workout-types"></div>
+                    </div>
+
+                    <!-- Time Range Selection -->
+                    <div>
+                        <h2>Select available time</h2>
+                        <div class="time-grid" id="time-ranges"></div>
+                    </div>
+
+                    <!-- Generate Button -->
+                    <button id="generate-btn" class="generate-button" disabled>
+                        <span>Generate Workout</span>
+                        <i class="ph ph-arrow-fat-lines-right bob-animation"></i>
+                    </button>
+                </div>
+
+                <!-- Workout Display -->
+                <div id="workout-screen" class="space-y-4" style="display: none;">
+                    <h2 id="workout-title"></h2>
+                    <div class="workout-detail">
+                        <i class="ph ph-barbell"></i>
+                        <span id="workout-intensity"></span>
+                    </div>
+                    <div class="workout-detail">
+                        <i class="ph ph-clock"></i>
+                        <span id="workout-duration"></span>
+                    </div>
+                    <p id="workout-instructions"></p>
+                    <button id="new-workout-btn" class="generate-button">
+                        <i class="ph ph-arrow-counter-clockwise rotate-animation"></i>
+                        <span>Retry</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="workouts.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
